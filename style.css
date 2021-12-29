@@ -147,3 +147,9 @@ main {
 .restart-btn:hover {
     cursor: pointer;
 }
+
+@media (max-width: 1028px) {
+    .scoreboard-container {
+        width: 70%;
+    }
+}
