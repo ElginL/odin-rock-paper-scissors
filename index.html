@@ -7,9 +7,22 @@
         <script src="app.js" defer></script>
     </head>
     <body>
-        <button data-value="rock">Rock</button>
-        <button data-value="scissors">Scissors</button>
-        <button data-value="paper">Paper</button>
+        <h1>Welcome to Scissors Paper Stone!</h1>
+        <div class="scoreboard-container">
+            <div class="score-container">
+                <h2 class="score-desc">Your Score:</h2>
+                <h3 class="score">0</h3>
+            </div>
+            <div class="score-container">
+                <h2 class="score-desc">Opponent's Score:</h2>
+                <h3 class="score">0</h3>
+            </div>
+        </div>
+        <div class="buttons-container">
+            <button data-value="rock">Rock</button>
+            <button data-value="scissors">Scissors</button>
+            <button data-value="paper">Paper</button>
+        </div>
         <div class="round-result"></div>
     </body>
 </html>
