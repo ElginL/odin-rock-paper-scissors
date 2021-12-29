@@ -4,25 +4,52 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock Scissors Paper</title>
+        <link rel="stylesheet" href="style.css">
         <script src="app.js" defer></script>
     </head>
     <body>
-        <h1>Welcome to Scissors Paper Stone!</h1>
-        <div class="scoreboard-container">
-            <div class="score-container">
-                <h2 class="score-desc">Your Score:</h2>
-                <h3 class="score">0</h3>
-            </div>
-            <div class="score-container">
-                <h2 class="score-desc">Opponent's Score:</h2>
-                <h3 class="score">0</h3>
+        <div class="background"></div>
+        <div class="modal">
+            <div class="modal-information-container">
+                <h2 class="modal-information-text"></h2>
+                <button class="restart-btn">Restart</button>
             </div>
         </div>
-        <div class="buttons-container">
-            <button data-value="rock">Rock</button>
-            <button data-value="scissors">Scissors</button>
-            <button data-value="paper">Paper</button>
-        </div>
-        <div class="round-result"></div>
+        <header>
+            <h1 class="heading-text">Welcome to Scissors Paper Stone!</h1>
+        </header>
+        <main>
+            <div class="scoreboard-container">
+                <div class="score-container">
+                    <h2 class="score-desc">Your Score:</h2>
+                    <h3 id ="player-score" class="score">0</h3>
+                    <div class="selection">
+                        <img src="images/questionmark.png" alt="Player Choice" class="selection-img">
+                    </div>
+                </div>
+                <div class="score-container">
+                    <h2 class="score-desc">Opponent's Score:</h2>
+                    <h3 id="opponent-score" class="score">0</h3>
+                    <div class="selection">
+                        <img src="images/questionmark.png" alt="Opponent Choice" class="selection-img">
+                    </div>
+                </div>
+            </div>
+            <div class="choose-container">
+                <h2 class="choose-title">Pick your weapon</h2>
+                <div class="buttons-container">
+                    <button data-value="rock" class="selection-btn">
+                        Rock
+                    </button>
+                    <button data-value="scissors" class="selection-btn">
+                        Scissors
+                    </button>
+                    <button data-value="paper" class="selection-btn">
+                        Paper
+                    </button>
+                </div>
+            </div>
+            <div class="round-result"></div>
+        </main>
     </body>
 </html>

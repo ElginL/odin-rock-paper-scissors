@@ -1,6 +1,6 @@
 function computerPlay() {
     const randIndex = Math.floor(Math.random() * 3);
-    const possibilities = ["Rock", "Paper", "Scissors"];
+    const possibilities = ["rock", "paper", "scissors"];
     return possibilities[randIndex];
 }
 
@@ -39,43 +39,55 @@ function playRound(playerSelection, computerSelection) {
 
 function playerPlayHandler(e) {
     const playerSelection = e.target.getAttribute("data-value");
-    roundResult.textContent = playRound(playerSelection, computerPlay());
+    const opponentSelection = computerPlay();
+    const resultMessage = playRound(playerSelection, opponentSelection);
+    
+    // Update image in play box
+    playerSelectionImg.setAttribute("src", `images/${playerSelection}.png`);
+    opponentSelectionImg.setAttribute("src", `images/${opponentSelection}.png`);
+
+
+    // Update score magnitudes
+    if (resultMessage.includes("Win")) {
+        playerScore.textContent = +playerScore.textContent + 1;
+    } else if (resultMessage.includes("Lose")) {
+        opponentScore.textContent = +opponentScore.textContent + 1;
+    }
+
+    // Update text after round
+    if (playerScore.textContent === "5") {
+        modal.classList.remove("modal");
+        modal.classList.add("modal-open");
+        modalInformation.textContent = "Congratulations, you won";
+    } else if (opponentScore.textContent === "5") {
+        modal.classList.remove("modal");
+        modal.classList.add("modal-open");
+        modalInformation.textContent = "You lost to a bot!";
+    } else {
+        roundResult.textContent = resultMessage;
+    }
 
 }
 
-const buttons = Array.from(document.querySelectorAll("button"));
-buttons.forEach(button => button.addEventListener("click", playerPlayHandler));
+function restartBtnHandler() {
+    modal.classList.remove("modal-open");
+    modal.classList.add("modal");
+    playerScore.textContent = 0;
+    opponentScore.textContent = 0;
+    roundResult.textContent = "";
+}
 
 const roundResult = document.querySelector(".round-result");
+const playerScore = document.getElementById("player-score");
+const opponentScore = document.getElementById("opponent-score");
+const selectionImages = document.querySelectorAll(".selection-img");
+const playerSelectionImg = selectionImages[0];
+const opponentSelectionImg = selectionImages[1];
+const modal = document.querySelector(".modal");
+const modalInformation = modal.querySelector(".modal-information-text");
+const restartButton = document.querySelector(".restart-btn");
 
+const buttons = Array.from(document.querySelectorAll(".selection-btn"));
+buttons.forEach(button => button.addEventListener("click", playerPlayHandler));
 
-// function game() {
-//     let playerWinCount = 0;
-//     let computerWinCount = 0;
-
-//     // Play 5 Rounds
-//     for (let i = 0; i < 5; i++) {
-//         const playerSelection = prompt("What is your pick?\n");
-//         const message = playRound(playerSelection, computerPlay());
-
-//         if (message.includes("Win")) {
-//             playerWinCount++;
-//         } 
-//         if (message.includes("Lose")) {
-//             computerWinCount++;
-//         }
-
-//         console.log(message);
-//     }
-
-//     // Print the overall winner
-//     if (playerWinCount > computerWinCount) {
-//         console.log("Your are the winner!");
-//     } else if (playerWinCount === computerWinCount) {
-//         console.log("Draw!");
-//     } else {
-//         console.log("You lost to a Bot!");
-//     }
-// }
-
-// game();
+restartButton.addEventListener("click", restartBtnHandler);

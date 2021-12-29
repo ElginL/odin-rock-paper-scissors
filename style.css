@@ -1,0 +1,149 @@
+body {
+    margin: 0;
+    color: white;
+}
+
+.background {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    background-color: #120e1f;
+    z-index: -1;
+}
+
+header {
+    padding: 16px;
+    background-color: #08080f;
+    color: red;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 30px;
+}
+
+.heading-text {
+    margin: 0;
+    text-align: center;
+}
+
+.scoreboard-container {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-desc {
+    font-size: 2.5rem;
+}
+
+.score {
+    margin: 0;
+    font-size: 3.5rem;
+}
+
+.selection {
+    width: 250px;
+    height: 250px;
+    border: 2px solid rgb(162, 57, 202);
+    box-shadow: 3px 3px rgba(162, 57, 202, 0.3);
+    margin: 1rem;
+    padding: 5px;
+}
+
+.selection-img {
+    width: 100%;
+    height: 100%;
+}
+
+.choose-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    align-items: center;
+}
+
+.choose-title {
+    margin-bottom: 0;
+    font-size: 3rem;
+}
+
+.selection-btn {
+    width: 150px;
+    font-size: 1.5rem;
+    padding: 10px 16px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    transition: all 0.5s;
+}
+
+.selection-btn:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
+}
+
+.buttons-container {
+    display: flex;
+    column-gap: 30px;
+}
+
+.round-result {
+    font-size: 1.75rem;
+    color: red;
+}
+
+.modal,
+.modal-open {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    display: none;
+    z-index: 1;
+}
+
+.modal-open {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-information-container {
+    background-color: lightgrey;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    height: 20%;
+}
+
+.modal-information-text {
+    color: black;
+    font-size: 2.25rem;
+    margin-top: 0;
+}
+
+.restart-btn {
+    padding: 10px 16px;
+    font-size: 1.5rem;
+}
+
+.restart-btn:hover {
+    cursor: pointer;
+}
