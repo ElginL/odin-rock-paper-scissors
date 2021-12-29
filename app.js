@@ -37,33 +37,45 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerWinCount = 0;
-    let computerWinCount = 0;
+function playerPlayHandler(e) {
+    const playerSelection = e.target.getAttribute("data-value");
+    roundResult.textContent = playRound(playerSelection, computerPlay());
 
-    // Play 5 Rounds
-    for (let i = 0; i < 5; i++) {
-        const playerSelection = prompt("What is your pick?\n");
-        const message = playRound(playerSelection, computerPlay());
-
-        if (message.includes("Win")) {
-            playerWinCount++;
-        } 
-        if (message.includes("Lose")) {
-            computerWinCount++;
-        }
-
-        console.log(message);
-    }
-
-    // Print the overall winner
-    if (playerWinCount > computerWinCount) {
-        console.log("Your are the winner!");
-    } else if (playerWinCount === computerWinCount) {
-        console.log("Draw!");
-    } else {
-        console.log("You lost to a Bot!");
-    }
 }
 
-game();
+const buttons = Array.from(document.querySelectorAll("button"));
+buttons.forEach(button => button.addEventListener("click", playerPlayHandler));
+
+const roundResult = document.querySelector(".round-result");
+
+
+// function game() {
+//     let playerWinCount = 0;
+//     let computerWinCount = 0;
+
+//     // Play 5 Rounds
+//     for (let i = 0; i < 5; i++) {
+//         const playerSelection = prompt("What is your pick?\n");
+//         const message = playRound(playerSelection, computerPlay());
+
+//         if (message.includes("Win")) {
+//             playerWinCount++;
+//         } 
+//         if (message.includes("Lose")) {
+//             computerWinCount++;
+//         }
+
+//         console.log(message);
+//     }
+
+//     // Print the overall winner
+//     if (playerWinCount > computerWinCount) {
+//         console.log("Your are the winner!");
+//     } else if (playerWinCount === computerWinCount) {
+//         console.log("Draw!");
+//     } else {
+//         console.log("You lost to a Bot!");
+//     }
+// }
+
+// game();
